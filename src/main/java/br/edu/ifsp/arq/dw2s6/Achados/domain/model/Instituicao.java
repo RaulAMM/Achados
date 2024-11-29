@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Instituicao")
+@Table(name = "instituicao")
 public class Instituicao {
 	@NotNull
 	private String nome;
