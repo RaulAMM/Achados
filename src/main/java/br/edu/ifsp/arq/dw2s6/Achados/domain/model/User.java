@@ -3,8 +3,6 @@ package br.edu.ifsp.arq.dw2s6.Achados.domain.model;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
