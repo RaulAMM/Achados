@@ -12,7 +12,7 @@ import br.edu.ifsp.arq.dw2s6.Achados.repository.CupomRepository;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/cupom")
 public class CupomResource {
 
 	@Autowired

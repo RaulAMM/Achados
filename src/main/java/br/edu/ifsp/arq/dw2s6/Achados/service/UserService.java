@@ -23,7 +23,7 @@ public class UserService {
 		return userRepository.save(userSaved);
 	}
 
-	public void updateActiveProperty(int id, List<Cupom> cupom) {
+	public void updateCupomProperty(int id, List<Cupom> cupom) {
 		User userSaved = findUserById(id);
 		userSaved.setCupoms(cupom);
 		userRepository.save(userSaved);

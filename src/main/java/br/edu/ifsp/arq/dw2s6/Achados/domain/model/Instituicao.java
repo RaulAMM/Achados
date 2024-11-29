@@ -1,13 +1,17 @@
 package br.edu.ifsp.arq.dw2s6.Achados.domain.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Instituicao")
 public class Instituicao {
-	
+	@NotNull
 	private String nome;
+	
+	@Id
 	private String cnpj;
 	private String categoria;
 	private String telefone;

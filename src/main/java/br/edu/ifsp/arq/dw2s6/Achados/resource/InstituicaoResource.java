@@ -12,7 +12,7 @@ import br.edu.ifsp.arq.dw2s6.Achados.repository.InstituicaoRepository;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/instituicao")
 public class InstituicaoResource {
 
 	@Autowired

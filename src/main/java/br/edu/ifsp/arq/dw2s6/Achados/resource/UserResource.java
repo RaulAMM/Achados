@@ -10,7 +10,7 @@ import br.edu.ifsp.arq.dw2s6.Achados.domain.model.User;
 import br.edu.ifsp.arq.dw2s6.Achados.repository.UserRepository;
 
 @RestController
-@RequestMapping
+@RequestMapping("/user")
 public class UserResource {
 
 	@Autowired
