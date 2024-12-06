@@ -24,26 +24,26 @@ public class CupomService {
 	private UserRepository userRepository;
 	
 	public Cupom save(Cupom cupom) {
-		Optional<User> user = userRepository.findById(cupom.getUser().getIdUsuario());
+		Optional<User> user = userRepository.findById((long) cupom.getUser().getIdUsuario());
 		if(!user.isPresent() || user.get().getCupoms()== null){
 			throw new NonExistentOrInactiveUserException();
 		}
 		return cupomRepository.save(cupom);
 	}
 	
-	public Cupom update(int id, Cupom cupom) {
+	public Cupom update(Long id, Cupom cupom) {
 		Cupom cupomSaved = findCupomById(id);
 		BeanUtils.copyProperties(cupom, cupomSaved, "id");
 		return cupomRepository.save(cupomSaved);
 	}
 	
-	public Cupom findCupomById(int id) {
+	public Cupom findCupomById(Long id) {
 		Cupom cupomSaved = cupomRepository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));
 		return cupomSaved;
 	}
 	
-	public List<Cupom> findByUser(int id) {
-		Optional<User> user = userRepository.findById(id);
+	public List<Cupom> findByUser(String email) {
+		Optional<User> user = userRepository.findByEmail(email);
 		if(user.isPresent()) {
 		return cupomRepository.findByUser(user.get());
 		}

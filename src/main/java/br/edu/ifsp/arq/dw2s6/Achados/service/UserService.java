@@ -17,19 +17,19 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public User update(int id, User user) {
+	public User update(Long id, User user) {
 		User userSaved = findUserById(id);
 		BeanUtils.copyProperties(user, userSaved, "id");
 		return userRepository.save(userSaved);
 	}
 
-	public void updateCupomProperty(int id, List<Cupom> cupom) {
+	public void updateCupomProperty(Long id, List<Cupom> cupom) {
 		User userSaved = findUserById(id);
 		userSaved.setCupoms(cupom);
 		userRepository.save(userSaved);
 	}
 	
-	public User findUserById(int id) {
+	public User findUserById(Long id) {
 		User userSaved = userRepository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));
 		return userSaved;
 	}
