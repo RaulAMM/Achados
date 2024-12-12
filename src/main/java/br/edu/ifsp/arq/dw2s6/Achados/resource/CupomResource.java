@@ -35,13 +35,13 @@ public class CupomResource {
 	private CupomService cupomService;	
 	
 	@GetMapping
-	@PreAuthorize("hasAuthority('ROLE_SEARCH_ACTIVITY') and hasAuthority('SCOPE_read')")
+	@PreAuthorize("hasAuthority('ROLE_SEARCH_CUPOM') and hasAuthority('SCOPE_read')")
 	public List<Cupom> list(){
 		return cupomRepository.findAll();
 	}
 	
-	@GetMapping("/{id}")
-	@PreAuthorize("hasAuthority('ROLE_SEARCH_ACTIVITY') and hasAuthority('SCOPE_read')")
+	@GetMapping("/{id_Cupom}")
+	@PreAuthorize("hasAuthority('ROLE_SEARCH_CUPOM') and hasAuthority('SCOPE_read')")
 	public ResponseEntity<Cupom> findById(@PathVariable Long id) {
 		Optional<Cupom> cupom = cupomRepository.findById(id);
 		if(cupom.isPresent()) {
@@ -50,8 +50,8 @@ public class CupomResource {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@GetMapping("/user/{email}")
-	@PreAuthorize("hasAuthority('ROLE_SEARCH_ACTIVITY') and hasAuthority('SCOPE_read')")
+	@GetMapping("/usuario/{email}")
+	@PreAuthorize("hasAuthority('ROLE_SEARCH_CUPOM') and hasAuthority('SCOPE_read')")
 	public ResponseEntity<List<Cupom>> finfByUser(@PathVariable String email){
 		List<Cupom> cupom = cupomService.findByUser(email);
 		if(!cupom.isEmpty()) {
@@ -62,20 +62,20 @@ public class CupomResource {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	@PreAuthorize("hasAuthority('ROLE_REGISTER_ACTIVITY') and hasAuthority('SCOPE_write')")
+	@PreAuthorize("hasAuthority('ROLE_REGISTER_CUPOM') and hasAuthority('SCOPE_write')")
 	public Cupom create(@Valid @RequestBody Cupom cupom) {
 		return cupomService.save(cupom);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{id_Cupom}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@PreAuthorize("hasAuthority('ROLE_REMOVE_ACTIVITY') and hasAuthority('SCOPE_write')")
+	@PreAuthorize("hasAuthority('ROLE_REMOVE_CUPOM') and hasAuthority('SCOPE_write')")
 	public void delete(@PathVariable Long id) {
 		cupomRepository.deleteById(id);
 	}
 	
-	@PutMapping("/{id}")
-	@PreAuthorize("hasAuthority('ROLE_REGISTER_ACTIVITY') and hasAuthority('SCOPE_write')")
+	@PutMapping("/{id_Cupom}")
+	@PreAuthorize("hasAuthority('ROLE_REGISTER_CUPOM') and hasAuthority('SCOPE_write')")
 	public ResponseEntity<Cupom> update(@PathVariable Long id, @Valid @RequestBody Cupom cupom) {
 		Cupom cupomSaved = cupomService.update(id, cupom);
 		return ResponseEntity.ok(cupomSaved);

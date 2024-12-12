@@ -24,8 +24,8 @@ public class CupomService {
 	private UserRepository userRepository;
 	
 	public Cupom save(Cupom cupom) {
-		Optional<User> user = userRepository.findById((long) cupom.getUser().getIdUsuario());
-		if(!user.isPresent() || user.get().getCupoms()== null){
+		Optional<User> user = userRepository.findById((long)cupom.getUser().getIdUsuario());
+		if(!user.isPresent() || !user.get().getCupom()){
 			throw new NonExistentOrInactiveUserException();
 		}
 		return cupomRepository.save(cupom);

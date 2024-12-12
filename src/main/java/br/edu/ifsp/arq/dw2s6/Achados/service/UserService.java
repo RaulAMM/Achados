@@ -1,13 +1,10 @@
 package br.edu.ifsp.arq.dw2s6.Achados.service;
 
-import java.util.List;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifsp.arq.dw2s6.Achados.domain.model.Cupom;
 import br.edu.ifsp.arq.dw2s6.Achados.domain.model.User;
 import br.edu.ifsp.arq.dw2s6.Achados.repository.UserRepository;
 
@@ -23,9 +20,9 @@ public class UserService {
 		return userRepository.save(userSaved);
 	}
 
-	public void updateCupomProperty(Long id, List<Cupom> cupom) {
+	public void updateCupomProperty(Long id, Boolean cupom) {
 		User userSaved = findUserById(id);
-		userSaved.setCupoms(cupom);
+		userSaved.setCupom(cupom);
 		userRepository.save(userSaved);
 	}
 	

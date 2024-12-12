@@ -19,12 +19,14 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.edu.ifsp.arq.dw2s6.Achados.service.exception.NonExistentOrInactiveUserException;
 
+@ControllerAdvice
 public class AchadosExceptionHandler extends ResponseEntityExceptionHandler{
 	@Autowired
 	private MessageSource messageSource;

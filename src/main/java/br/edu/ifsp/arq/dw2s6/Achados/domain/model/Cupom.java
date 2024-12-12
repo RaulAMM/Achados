@@ -21,7 +21,7 @@ public class Cupom {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idCupom;
 	
 	@NotNull
 	private int QTD_Cupon;
@@ -51,10 +51,10 @@ public class Cupom {
 	
 	//Getters e Setters
 	public Long getId() {
-		return id;
+		return idCupom;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long idCupom) {
+		this.idCupom = idCupom;
 	}
 	public int getQTD_Cupon() {
 		return QTD_Cupon;
@@ -101,7 +101,7 @@ public class Cupom {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(idCupom);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -112,7 +112,7 @@ public class Cupom {
 		if (getClass() != obj.getClass())
 			return false;
 		Cupom other = (Cupom) obj;
-		return id == other.id;
+		return Objects.equals(idCupom, other.idCupom);
 	}
 	
 }

@@ -39,10 +39,13 @@ public class User {
 	@NotNull
 	private int tipo;
 	
-	@ManyToMany(fetch = FetchType.EAGER) 
-	@JoinTable(name = "Cupom_has_Usuario", joinColumns = @JoinColumn(name = "Usuario_IdUsuario"),
-	inverseJoinColumns = @JoinColumn(name = "Cupom_IdCupom"))
-	private List<Cupom> cupoms;
+	@NotNull
+	private Boolean cupom;
+	
+	@ManyToMany(fetch = FetchType.EAGER) // fetch = buscar - eager = ancioso
+	@JoinTable(name = "user_permission", joinColumns = @JoinColumn(name = "id_user"), 
+	inverseJoinColumns = @JoinColumn(name = "id_permission"))
+	private List<Permission> permissions;
 	
 	
 	
@@ -77,11 +80,18 @@ public class User {
 	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
-	public List<Cupom> getCupoms() {
-		return cupoms;
+	
+	public Boolean getCupom() {
+		return cupom;
 	}
-	public void setCupoms(List<Cupom> cupoms) {
-		this.cupoms = cupoms;
+	public void setCupom(Boolean cupom) {
+		this.cupom = cupom;
+	}
+	public List<Permission> getPermissions() {
+		return permissions;
+	}
+	public void setPermissions(List<Permission> permissions) {
+		this.permissions = permissions;
 	}
 	@Override
 	public int hashCode() {
