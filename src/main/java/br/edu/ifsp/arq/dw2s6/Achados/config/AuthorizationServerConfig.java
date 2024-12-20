@@ -131,7 +131,7 @@ public class AuthorizationServerConfig {
         final KeyStore keyStore = KeyStore.getInstance("JKS");
         keyStore.load(inputStream, "123456".toCharArray());
     	
-    	RSAKey rsa = RSAKey.load(keyStore, "achados", "123456".toCharArray());
+    	RSAKey rsa = RSAKey.load(keyStore, "Achado", "123456".toCharArray());
 
         return new JWKSet(rsa);
     }
